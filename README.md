@@ -2,8 +2,6 @@
 
 FocusGuard is a Python-based smart website blocker for Ubuntu that helps you stay productive. It analyzes your **Brave browser history** for the day, uses a **Large Language Model (LLM)** to identify distracting websites, and automatically blocks them if you exceed a preset distraction limit.
 
-!(https://i.imgur.com/gK1q5sJ.png)
-*(Image placeholder: Feel free to replace this with your own logo or graphic)*
 
 ## ✨ Core Features
 
@@ -46,7 +44,7 @@ Follow these steps to get FocusGuard up and running on your system.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/FocusGuard.git](https://github.com/your-username/FocusGuard.git)
+    git clone [https://github.com/Manish9250/FocusGuard.git](https://github.com/your-username/FocusGuard.git)
     cd FocusGuard
     ```
 
