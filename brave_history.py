@@ -71,14 +71,23 @@ def get_history_for_range(start_time, end_time):
 if __name__ == "__main__":
     # --- IMPORTANT: Get current time and last check time in UTC ---
     # This ensures we query the database correctly.
+    # 1. Get the current time in your LOCAL timezone (IST)
+    now_local = datetime.now().astimezone()
+
+    # 2. Determine the start of today (midnight) in your LOCAL timezone
+    start_of_today_local = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
+    
+    # 3. NOW, convert that correct local start time to UTC for the database
+    start_time_utc = start_of_today_local.astimezone(timezone.utc)
+
+    # 4. The end time is simply the current moment in UTC
     end_time_utc = datetime.now(timezone.utc)
-    start_time_utc = end_time_utc - timedelta(minutes=1400)
+    
+    print(f"✅ Correctly fetching history for today ({now_local.strftime('%Y-%m-%d')}).")
+    print(f"Querying data from {start_time_utc.isoformat()} to {end_time_utc.isoformat()}...")
 
-    print(f"Fetching history from {start_time_utc.isoformat()} to {end_time_utc.isoformat()}...")
-
-    # The function now returns history with LOCAL timestamps for display
+    # The rest of your script follows...
     new_history = get_history_for_range(start_time_utc, end_time_utc)
-
     if not new_history:
         print("No significant new browsing activity found.")
     else:

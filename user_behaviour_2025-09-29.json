@@ -1,0 +1,19 @@
+{
+    "date": "2025-09-29",
+    "total_active_time_minutes": 1,
+    "productivity_score_percent": 100,
+    "time_by_category": {
+        "Productive": 0,
+        "Neutral": 0,
+        "Distracting": 0
+    },
+    "sites_by_duration": [
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [],
+    "block_type": "none",
+    "temporary_block_duration_seconds": 0
+}
