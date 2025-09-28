@@ -29,7 +29,7 @@ def load_chat_history(filename):
         # Return an empty list if the file doesn't exist or is empty/corrupt
         return []
 
-def analyze_productivity(history_data, chat_history):
+def analyze_productivity(history_data, chat_history, previous_analysis):
     """
     Analyzes browsing history using the Gemini API, maintains a chat session,
     and returns a structured JSON analysis.
@@ -48,16 +48,27 @@ def analyze_productivity(history_data, chat_history):
     
     genai.configure(api_key=API_KEY)
 
+    # If no previous analysis exists (first run of the day), create a default structure.
+    if previous_analysis is None:
+        previous_analysis = {
+            "datetime_utc": "N/A", "total_active_time_minutes": 0,
+            "productivity_score_percent": 100,
+            "time_by_category": {"Productive": 0, "Neutral": 0, "Distracting": 0},
+            "sites_by_duration": [], "sites_to_block": [], "block_type": "none",
+            "temporary_block_duration_seconds": 0
+        }
+
     # Format the history data for the prompt
     formatted_history = "\n".join(
         [f"- Visited '{t}' ({u}) for {d} seconds at {ts.strftime('%H:%M:%S')}" for u, t, d, ts in history_data]
     )
+    previous_analysis_str = json.dumps(previous_analysis, indent=2)
 
     # The detailed prompt instructing the LLM on its task, logic, and output format
     prompt = f"""
     You are a sophisticated productivity analyst. Your task is to analyze the user's recent web browsing activity and provide a detailed report in a specific JSON format. Maintain the context from our previous interactions.
 
-    **Current Date:** {datetime.now().strftime('%Y-%m-%d')}
+    **Current Date:** {datetime.now()}
     **Permitted Daily Distraction Time:** 1 hour (3600 seconds)
 
     **Analysis Rules & Blocking Logic:**
@@ -70,7 +81,7 @@ def analyze_productivity(history_data, chat_history):
     Based on your analysis, provide a response ONLY in the following JSON format. Do not include any text, explanations, or markdown formatting outside of the JSON object itself.
 
     {{
-        "date": "YYYY-MM-DD",
+        "datetime_utc": "<string_iso_format>",
         "total_active_time_minutes": <integer>,
         "productivity_score_percent": <integer>,
         "time_by_category": {{
@@ -94,11 +105,18 @@ def analyze_productivity(history_data, chat_history):
     - `block_type`: Set to 'temporary' for a short block, 'permanent' for the rest of the day, or 'none'.
     - `temporary_block_duration_seconds`: If `block_type` is 'temporary', suggest a duration in seconds (e.g., 300 or 600). If `block_type` is 'permanent' or 'none', set this to 0.
 
-    Note: Don't block  permanently if yours distraction time is less than 1 hour 
+    Note: Don't block  permanently if distraction time is less than 1 hour 
     
-    **Recent Browsing Activity to Analyze:**
+    <previous analysis>
+    {previous_analysis_str}
+    </previous analysis>
+
+    Note: Compare the distraction time from previous analysis and this updated history, And if you see the user is continuously distracted like distration time increased from 10 mintues to 20 mintues then block temporaryly and block the site for every 10 mintues distraction.
+
+    <updated_complete_history>
     {formatted_history}
-    """
+    </updated_complete_history?
+   """
 
     try:
         model = genai.GenerativeModel(MODEL_NAME)
@@ -125,22 +143,16 @@ if __name__ == '__main__':
     today_str = datetime.now().strftime('%Y-%m-%d')
     analysis_filename = f"user_behaviour_{today_str}.json"
     chat_history_filename = f"chat_history_{today_str}.json"
+    
+    previous_analysis = load_chat_history(analysis_filename)
+    print("--- Previous Analysis State ---")
+    print(json.dumps(previous_analysis, indent=2) if previous_analysis else "No previous analysis found for today.")
+    print("\n")
 
     # 2. Load the chat history from the last run (if any)
     # The 'history' object is a list of structured content dictionaries
     history = load_chat_history(chat_history_filename)
     print(f"Loaded {len(history)} previous messages from the chat session.")
-
-    # 3. Simulate getting new browsing data (replace with your actual function call)
-    # This example simulates 11 minutes of continuous distraction to trigger a temporary block
-    # print("\nSimulating new browsing activity...")
-    # simulated_history_data = [
-    #     ('https://www.youtube.com/watch?v=example1', 'Funny Cat Videos', 310, datetime.now() - timedelta(minutes=11)),
-    #     ('https://www.instagram.com/reels/shortvid', 'Instagram Reels', 245, datetime.now() - timedelta(minutes=6)),
-    #     ('https://www.youtube.com/watch?v=example2', 'More Funny Videos', 120, datetime.now() - timedelta(minutes=2)),
-    #     ('https://mail.google.com/mail/u/0/#inbox', 'Gmail', 60, datetime.now()),
-    # ]
-
 
     # Getting brave history 
     # 1. Get the current time in your LOCAL timezone (IST)
@@ -162,7 +174,7 @@ if __name__ == '__main__':
     brave_history = get_history_for_range(start_time_utc, end_time_utc)
 
     # 4. Call the analysis function
-    analysis, updated_history = analyze_productivity(brave_history, history)
+    analysis, updated_history = analyze_productivity(brave_history, history, previous_analysis)
 
     # 5. Process and save the results
     if analysis:

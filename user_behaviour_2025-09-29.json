@@ -1,6 +1,6 @@
 {
-    "date": "2025-09-29",
-    "total_active_time_minutes": 1,
+    "datetime_utc": "2025-09-29T00:43:48.826464",
+    "total_active_time_minutes": 0,
     "productivity_score_percent": 100,
     "time_by_category": {
         "Productive": 0,
