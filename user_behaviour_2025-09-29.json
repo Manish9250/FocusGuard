@@ -1,0 +1,29 @@
+{
+    "datetime_utc": "2025-09-29 12:47:47.917658",
+    "total_active_time_minutes": 177,
+    "productivity_score_percent": 61,
+    "time_by_category": {
+        "Productive": 109,
+        "Neutral": 0,
+        "Distracting": 68
+    },
+    "sites_by_duration": [
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 109
+        },
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 68
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "www.instagram.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

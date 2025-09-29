@@ -5,7 +5,7 @@
 PROJECT_DIR="/home/manish/shared_space/FocusGuard"
 
 # 2. Your Google API Key
-export GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+export GENAI_API_KEY_1="AIzaSyCnPOPssH1tLsz8Glt7h-w"
 # -----------------------------------------
 
 # Navigate to the project directory
@@ -21,4 +21,5 @@ LOG_FILE="$PROJECT_DIR/focusguard.log"
 # - The 'sudo -E' command preserves environment variables (like the API key).
 # - '>> "$LOG_FILE" 2>&1' redirects all output and errors to the log file for debugging.
 echo "--- Starting FocusGuard at $(date) ---" >> "$LOG_FILE"
-sudo -E "$VENV_PYTHON" blocker.py >> "$LOG_FILE" 2>&1
+#sudo -E "$VENV_PYTHON" blocker.py >> "$LOG_FILE" 2>&1
+sudo -E "$VENV_PYTHON" blocker.py 
