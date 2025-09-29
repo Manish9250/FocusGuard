@@ -1,33 +1,33 @@
 {
-    "datetime_utc": "2025-09-29 13:20:56.446262",
-    "total_active_time_minutes": 218,
-    "productivity_score_percent": 63,
+    "datetime_utc": "2025-09-29 14:11:19.831448",
+    "total_active_time_minutes": 311,
+    "productivity_score_percent": 58,
     "time_by_category": {
-        "Productive": 136,
-        "Neutral": 23,
-        "Distracting": 58
+        "Productive": 179,
+        "Neutral": 40,
+        "Distracting": 92
     },
     "sites_by_duration": [
         {
             "site": "gemini.google.com",
-            "duration_minutes": 132
+            "duration_minutes": 156
         },
         {
             "site": "www.instagram.com",
-            "duration_minutes": 58
+            "duration_minutes": 92
         },
         {
             "site": "search.brave.com",
-            "duration_minutes": 23
+            "duration_minutes": 40
         },
         {
             "site": "127.0.0.1",
-            "duration_minutes": 5
+            "duration_minutes": 23
         }
     ],
     "sites_to_block": [
         "www.instagram.com"
     ],
-    "block_type": "temporary",
-    "temporary_block_duration_seconds": 600
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
 }

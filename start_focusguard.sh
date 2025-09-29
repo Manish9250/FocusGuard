@@ -5,13 +5,13 @@
 PROJECT_DIR="/home/manish/shared_space/FocusGuard"
 
 # 2. Your Google API Key
-export GENAI_API_KEY_1="AIzaSyCnPOPs61T8fT37tLsz8Glt7h-w"
+export GENAI_API_KEY_1="AIzaSyCnPOPM61T8fT37tLsz8Glt7h-w"
 # -----------------------------------------
 
 # Navigate to the project directory
 cd "$PROJECT_DIR"
 
-# Get the full path to the Python executable inside your venv
+# Get the full path to the Python executable inside your ven
 VENV_PYTHON="$PROJECT_DIR/venv/bin/python3"
 
 # Define the log file path

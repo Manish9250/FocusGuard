@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // --- Countdown logic (remains the same) ---
     const countdownElement = document.getElementById('countdown');
-    setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 60000);
     updateCountdown();
 
     function updateCountdown() {

@@ -1,78 +1,127 @@
-# FocusGuard: The LLM-Powered Website Blocker 🛡️🧠
+# FocusGuard: The LLM-Powered Productivity Guardian 🛡️🧠
 
-FocusGuard is a Python-based smart website blocker for Ubuntu that helps you stay productive. It analyzes your **Brave browser history** for the day, uses a **Large Language Model (LLM)** to identify distracting websites, and automatically blocks them if you exceed a preset distraction limit.
+FocusGuard is a smart, automated website blocker for Ubuntu that helps you stay on track. It intelligently analyzes your daily Brave browser activity using an LLM, identifies distracting patterns, and enforces focus blocks by serving a dynamic, personalized dashboard right on your local machine.
 
+---
+
+**Screenshot:**
+![Dashboard](image.png)
+
+---
 
 ## ✨ Core Features
 
-* **Intelligent Analysis**: Leverages the power of Google's Gemini (or another LLM) to understand which sites are productive versus distracting, rather than relying on a static blocklist.
-* **Dynamic Blocking**: Only blocks sites *after* you've spent too much time on distracting content for the day.
-* **Time-Aware**: Tracks the duration of your visits to calculate total distraction time.
-* **System-Level Blocking**: Modifies the `/etc/hosts` file for robust, browser-agnostic blocking.
-* **Immediate Effect**: Automatically terminates the browser process to ensure blocking rules are applied instantly.
-* **Automated**: Designed to be run automatically in the background using a cron job.
+* **Intelligent Analysis**: Leverages Google's Gemini LLM to analyze browser history and understand productivity vs. distraction.
+* **Dynamic Blocking**: Automatically blocks distracting sites using the system's `hosts` file when distraction limits are exceeded.
+* **Custom Block Page**: Serves a local HTTP page when a site is blocked.
+* **Productivity Dashboard**: The block page displays a real-time countdown timer and a detailed dashboard of your daily productivity stats.
+* **Stateful Memory**: Remembers your activity throughout the day to make increasingly informed blocking decisions.
+* **Automated & Persistent**: Runs as a background service and starts automatically when you log in.
 
 ---
 
 ## ⚙️ How It Works
 
-The script follows a simple yet powerful workflow:
+FocusGuard is composed of several scripts that work together as a complete system:
 
-1.  **🔍 Extract Data**: The script safely copies your Brave browser's `History` SQLite database to avoid file-locking issues.
-2.  **📊 Process History**: It queries the database to get a list of all websites you've visited today, including the title and visit duration for each.
-3.  **🤖 Send to LLM**: This data is formatted and sent to an LLM with a specific prompt asking it to:
-    * Calculate the total time spent on distracting sites (social media, news, entertainment, etc.).
-    * Compare this total against a defined limit (e.g., 1 hour).
-    * Return a list of distracting domains *only if* the limit is breached.
-4.  **📝 Update Hosts File**: If the LLM returns a list of sites, the script adds them to your `/etc/hosts` file, redirecting them to `127.0.0.1`.
-5.  **💥 Enforce Rules**: Finally, it kills the Brave browser process, forcing it to recognize the new `hosts` file rules upon restart.
+1.  **History & Analysis**: A script runs periodically to fetch recent Brave browser history. This data, along with the previous analysis state, is sent to the Gemini LLM.
+2.  **Decision Making**: The LLM analyzes the cumulative data and returns a JSON object with updated productivity stats and a blocking decision (`none`, `temporary`, or `permanent`).
+3.  **Enforcement (`blocker.py`)**: A background service constantly monitors the decision file. When a block is triggered, it:
+    * Modifies the `/etc/hosts` file to redirect distracting domains to `127.0.0.1`.
+    * Terminates the Brave browser to apply the changes immediately.
+4.  **Feedback (`web_server.py`)**: A lightweight Flask server runs locally on port 80 (HTTP), serving the custom block page and dashboard to any redirected traffic.
+5.  **Automation (`start_focusguard.sh`)**: A startup script manages all background services, ensuring the system is always running when you're logged in.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Installation & Setup
 
-Follow these steps to get FocusGuard up and running on your system.
+Follow these steps carefully to get FocusGuard running on your Ubuntu system.
 
 ### Prerequisites
 
-* **OS**: An Ubuntu-based Linux distribution.
-* **Python**: Python 3.8 or newer.
-* **Browser**: Brave Browser.
-* **API Key**: A Google AI API key for the Gemini model. You can get one from [Google AI Studio](https://aistudio.google.com/app/apikey).
+* Ubuntu 20.04 or later.
+* Brave Browser.
+* Python 3.8+ and Pip.
+* A Google AI (Gemini) API Key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+* `openssl` command-line tool (usually pre-installed).
 
-### Installation & Setup
+### Step-by-Step Guide
 
-1.  **Clone the repository:**
+1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/Manish9250/FocusGuard.git](https://github.com/your-username/FocusGuard.git)
+    git clone [https://github.com/manish9250/FocusGuard.git](https://github.com/manish9250/FocusGuard.git)
     cd FocusGuard
     ```
 
-2.  **Install Python dependencies:**
-    *(Create a `requirements.txt` file with the following content:)*
+2.  **Set Up Virtual Environment**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+3.  **Install Dependencies**
+    Create a `requirements.txt` file with the following content:
     ```
     google-generativeai
     pandas
+    Flask
     ```
-    *Then run:*
+    Then, run the installation command:
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  **Set up your API Key:**
-    It's crucial to set your API key as an environment variable rather than hardcoding it.
-    ```bash
-    export GOOGLE_API_KEY='YOUR_API_KEY_HERE'
+4.  **Create `.env` File for API Key (Security)**
+    Create a file named `.env` and add your secret key. **This file will be ignored by Git and will not be uploaded.**
     ```
-    To make this permanent, add the line above to your shell's configuration file (`~/.bashrc` or `~/.zshrc`) and then run `source ~/.bashrc` or `source ~/.zshrc`.
+    GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+    ```
+
+
+5.  **Configure `sudoers` for Password-less Startup**
+    This is a critical step to allow the startup script to run with the necessary permissions.
+    * Run `sudo visudo`. This is the only safe way to edit this file.
+    * Scroll to the very bottom and add the following line. **Replace `your_username` with your actual username.**
+
+    ```
+    your_username ALL=(ALL) NOPASSWD: /home/your_username/path/to/FocusGuard/start_focusguard.sh
+    ```
+    * Save and exit by pressing `Ctrl+X`, then `Y`, then `Enter`.
+
+6.  **Configure the Startup Script**
+    * Open the `start_focusguard.sh` file.
+    * Edit the `PROJECT_DIR` variable to match the **full, absolute path** to your `FocusGuard` directory.
 
 ---
 
 ## 💻 Usage
 
-### Manual Execution
+### Manual Start/Stop
+* **To start** the services (blocker and web server):
+    ```bash
+    sudo ./start_focusguard.sh
+    ```
 
-Because the script modifies the system-level `/etc/hosts` file, you **must** run it with `sudo`.
+### Run on Startup (Recommended)
+1.  Make sure you have completed all setup steps above.
+2.  Search for and open **"Startup Applications"** on your Ubuntu desktop.
+3.  Click **Add**.
+4.  Fill in the fields:
+    * **Name**: `FocusGuard Service`
+    * **Command**: `sudo /home/your_username/path/to/FocusGuard/start_focusguard.sh`
+    * **Comment**: `Starts the AI-powered website blocker.`
+5.  Click **Add**. The service will now start automatically every time you log in.
 
-```bash
-sudo python3 main_blocker.py
+---
+
+## ⚠️ Troubleshooting
+
+* **HTTPS Security Warning**: When redirected to a blocked site, your browser will show a security warning ("Your connection is not private"). This is expected because we are using a self-signed certificate. You must click **"Advanced"** and **"Proceed to... (unsafe)"** to view the dashboard.
+* **Logs**: If something isn't working, check the log files generated in the project directory (`focusguard.log`, `blocker.log`, `webserver.log`). They contain valuable debugging information.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
