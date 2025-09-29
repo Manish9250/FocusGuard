@@ -8,7 +8,7 @@ from brave_history import get_history_for_range
 # It's highly recommended to set this as an environment variable
 # export GOOGLE_API_KEY='YOUR_API_KEY'
 API_KEY = os.getenv("GENAI_API_KEY_1")
-MODEL_NAME = 'gemini-2.5-flash-lite'
+MODEL_NAME = 'gemini-2.5-flash'
 
 
 def save_json_data(data, filename):
@@ -116,6 +116,11 @@ def analyze_productivity(history_data, chat_history, previous_analysis):
     <updated_complete_history>
     {formatted_history}
     </updated_complete_history?
+
+
+    Mistakes that you make:
+    1. you add the previous analysis time duration along with the updated history, which is wrong, as i provide you full history of the day everytime.
+    2. store all the duration in mintues.
    """
 
     try:
@@ -160,6 +165,7 @@ if __name__ == '__main__':
 
     # 2. Determine the start of today (midnight) in your LOCAL timezone
     start_of_today_local = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
+    print("Start time: ", start_of_today_local)
     
     # 3. NOW, convert that correct local start time to UTC for the database
     start_time_utc = start_of_today_local.astimezone(timezone.utc)
