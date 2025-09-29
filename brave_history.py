@@ -16,12 +16,8 @@ def get_history_for_range(start_time, end_time):
               (url, title, duration_in_seconds, local_visit_datetime).
     """
     # Get the username of the user who ran sudo, falling back to the current user
-    user = os.getenv('SUDO_USER') or os.getenv('USER')
-    if not user:
-        print("❌ ERROR: Could not determine user.")
-        return [] # Or handle error appropriately
-
-    history_db = f'/home/{user}/.config/BraveSoftware/Brave-Browser/Default/History'
+    
+    history_db = f'/home/manish/.config/BraveSoftware/Brave-Browser/Default/History'
     temp_db = '/tmp/brave_history_copy.db'
     
     os.system(f'cp {history_db} {temp_db}')
