@@ -141,7 +141,7 @@ def analyze_productivity(history_data, chat_history, previous_analysis):
         return None, chat_history
 
 
-if __name__ == '__main__':
+def llm_main():
     # --- This is an example of how to use the script ---
     
     # 1. Define filenames for today
@@ -185,7 +185,7 @@ if __name__ == '__main__':
     # 5. Process and save the results
     if analysis:
         print("\n--- Gemini Analysis Result ---")
-        print(json.dumps(analysis, indent=2))
+        #print(json.dumps(analysis, indent=2))
         
         # Save the detailed analysis and the updated chat session
         save_json_data(analysis, analysis_filename)

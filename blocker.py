@@ -1,8 +1,12 @@
+#!/home/manish/shared_space/manhwa_explainer/venv/bin/python3
+
+
 import json
 import time
 import os
 import subprocess
 from datetime import datetime, timedelta
+from llm_analysis import llm_main
 
 # --- Configuration ---
 HOSTS_FILE_PATH = '/etc/hosts'
@@ -59,7 +63,6 @@ def apply_blocks(sites_to_block):
                     f.write(f"{REDIRECT_IP}\twww.{site}\n")
             f.write(f"{BLOCK_MARKER_END}\n")
         
-        #subprocess.run(["sudo", "systemd-resolve", "--flush-caches"], check=True)
         print("✅ Blocks are now active.")
         # Update state with the list of blocked sites
         BLOCK_STATE['sites'] = set(sites_to_block)
@@ -95,7 +98,6 @@ def add_sites_to_block(sites_to_add):
         with open(HOSTS_FILE_PATH, 'w') as f:
             f.writelines(lines)
         
-        #subprocess.run(["sudo", "systemd-resolve", "--flush-caches"], check=True)
         print("✅ Hosts file updated with new sites.")
         BLOCK_STATE['sites'].update(sites_to_add)
         # Terminating brave
@@ -124,7 +126,6 @@ def remove_blocks():
                 if not in_block_section:
                     f.write(line)
         
-        subprocess.run(["sudo", "systemd-resolve", "--flush-caches"], check=True)
         print("✅ Sites have been unblocked.")
         # Reset the sites in our state
         BLOCK_STATE['sites'] = set()
@@ -147,6 +148,10 @@ def main():
         # --- 2. Load the latest analysis ---
         today_str = datetime.now().strftime('%Y-%m-%d')
         analysis_filename = f"user_behaviour_{today_str}.json"
+
+        # Generating report
+        print("Generating report")
+        llm_main()
         analysis = load_json_data(analysis_filename)
 
         if not analysis:
