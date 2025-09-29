@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Time</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>⏳ Focus Time ⏳</h1>
+        <p class="message">Please focus on your work. Further distraction will result in a permanent block for the day.</p>
+        
+        <div id="countdown-container">
+            <p>This site will be unblocked in:</p>
+            <h2 id="countdown">--:--:--</h2>
+        </div>
+        
+        <div id="data-dashboard">
+            <h3>Today's Productivity Report</h3>
+            <div class="card-layout">
+                <div class="card" id="score-card"></div>
+                <div class="card" id="category-card"></div>
+                <div class="card" id="sites-card"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

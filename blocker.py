@@ -25,6 +25,18 @@ BLOCK_STATE = {
     'sites': set()  # Using a set for efficient lookups
 }
 
+# Add this function at the top of blocker.py
+def update_block_status_file():
+    """Writes the current BLOCK_STATE to a json file."""
+    status_to_write = {
+        'blocked': BLOCK_STATE['active'],
+        'type': BLOCK_STATE['type'],
+        'sites': list(BLOCK_STATE['sites']),
+        'expires_at_iso': BLOCK_STATE['expires_at'].isoformat() if BLOCK_STATE.get('expires_at') else None
+    }
+    with open('block_status.json', 'w') as f:
+        json.dump(status_to_write, f)
+
 def terminate_browser():
     """Forcefully terminates all Brave browser processes."""
     print("🔴 Terminating Brave browser to apply new blocking rules...")
@@ -68,6 +80,7 @@ def apply_blocks(sites_to_block):
         BLOCK_STATE['sites'] = set(sites_to_block)
         # Terminating brave
         terminate_browser()
+        update_block_status_file()
         
     except Exception as e:
         print(f"❌ ERROR writing to hosts file: {e}")
@@ -102,6 +115,7 @@ def add_sites_to_block(sites_to_add):
         BLOCK_STATE['sites'].update(sites_to_add)
         # Terminating brave
         terminate_browser()
+        update_block_status_file()
 
 
     except Exception as e:
@@ -129,6 +143,8 @@ def remove_blocks():
         print("✅ Sites have been unblocked.")
         # Reset the sites in our state
         BLOCK_STATE['sites'] = set()
+        terminate_browser()
+        update_block_status_file()
     
     except Exception as e:
         print(f"❌ ERROR modifying hosts file: {e}")

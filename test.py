@@ -1,20 +1,29 @@
 import subprocess
-def terminate_browser():
-    """Forcefully terminates all Brave browser processes."""
-    print("🔴 Terminating Brave browser to apply new blocking rules...")
+import os
+def show_block_notification():
+    """
+    Opens a new Brave window as the original user to show the block page.
+    """
+    print("띄 Proactively showing the block page to the user...")
     try:
-        # Use 'pkill -f' to find and kill all processes matching 'brave'.
-        # This is effective as browsers often have many related helper processes.
-        # 'check=True' will raise an exception if the command fails.
-        # 'capture_output=True' hides the command's output from our script's log.
-        subprocess.run(["pkill", "-f", "brave"], check=True, capture_output=True)
-        print("✅ Brave browser has been terminated.")
-    except subprocess.CalledProcessError:
-        # This error typically occurs if pkill doesn't find any processes,
-        # which means the browser wasn't running.
-        print("👍 Brave browser was not running.")
+        # Get the original user who ran sudo
+        user = "manish"
+        #user = os.getenv('SUDO_USER')
+        if not user:
+            print("⚠️ Could not find SUDO_USER. Cannot open browser window.")
+            return
+
+        # Use subprocess.Popen to launch the browser without waiting for it to close.
+        # We run this command as the original user using 'sudo -u'.
+        subprocess.Popen([
+            "sudo",
+            "-u",
+            user,
+            "brave-browser",
+            "--new-window",
+            "https://127.0.0.1/"
+        ])
     except Exception as e:
-        print(f"❌ An error occurred while trying to terminate the browser: {e}")
+        print(f"❌ An error occurred while trying to open the browser: {e}")
 
-
-terminate_browser()
+show_block_notification()

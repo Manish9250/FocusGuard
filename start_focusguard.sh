@@ -5,7 +5,7 @@
 PROJECT_DIR="/home/manish/shared_space/FocusGuard"
 
 # 2. Your Google API Key
-export GENAI_API_KEY_1="AIzaSyCnPOPssH1tLsz8Glt7h-w"
+export GENAI_API_KEY_1="AIzaSyCnPOPs61T8fT37tLsz8Glt7h-w"
 # -----------------------------------------
 
 # Navigate to the project directory
@@ -15,11 +15,12 @@ cd "$PROJECT_DIR"
 VENV_PYTHON="$PROJECT_DIR/venv/bin/python3"
 
 # Define the log file path
-LOG_FILE="$PROJECT_DIR/focusguard.log"
+BLOCKER_LOG="$PROJECT_DIR/blocker.log"
+WEBSERVER_LOG="$PROJECT_DIR/webserver.log"
 
-# Run the blocker script using the venv's Python.
-# - The 'sudo -E' command preserves environment variables (like the API key).
-# - '>> "$LOG_FILE" 2>&1' redirects all output and errors to the log file for debugging.
-echo "--- Starting FocusGuard at $(date) ---" >> "$LOG_FILE"
-#sudo -E "$VENV_PYTHON" blocker.py >> "$LOG_FILE" 2>&1
-sudo -E "$VENV_PYTHON" blocker.py 
+echo "--- Starting FocusGuard Blocker at $(date) ---" >> "$BLOCKER_LOG"
+# The '&' runs the process in the background
+sudo -E "$VENV_PYTHON" blocker.py >> "$BLOCKER_LOG" 2>&1 &
+
+echo "--- Starting FocusGuard Web Server at $(date) ---" >> "$WEBSERVER_LOG"
+sudo -E "$VENV_PYTHON" web_server.py >> "$WEBSERVER_LOG" 2>&1 &
