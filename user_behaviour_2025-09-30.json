@@ -1,0 +1,37 @@
+{
+    "datetime_utc": "2025-09-30T20:34:37Z",
+    "total_active_time_minutes": 205,
+    "productivity_score_percent": 88,
+    "time_by_category": {
+        "Productive": 181,
+        "Neutral": 0,
+        "Distracting": 24
+    },
+    "sites_by_duration": [
+        {
+            "site": "127.0.0.1",
+            "duration_minutes": 113
+        },
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 66
+        },
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 20
+        },
+        {
+            "site": "music.youtube.com",
+            "duration_minutes": 4
+        },
+        {
+            "site": "studio.youtube.com",
+            "duration_minutes": 2
+        }
+    ],
+    "sites_to_block": [
+        "www.instagram.com"
+    ],
+    "block_type": "temporary",
+    "temporary_block_duration_seconds": 600
+}

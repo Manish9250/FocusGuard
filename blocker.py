@@ -38,7 +38,9 @@ def update_block_status_file():
         json.dump(status_to_write, f)
 
 def terminate_browser():
-    """Forcefully terminates all Brave browser processes."""
+    pass
+    """
+    # Forcefully terminates all Brave browser processes.
     print("🔴 Terminating Brave browser to apply new blocking rules...")
     try:
         # Use 'pkill -f' to find and kill all processes matching 'brave'.
@@ -53,7 +55,7 @@ def terminate_browser():
         print("👍 Brave browser was not running.")
     except Exception as e:
         print(f"❌ An error occurred while trying to terminate the browser: {e}")
-
+"""
 
 def load_json_data(filename):
     """Loads the analysis JSON file."""
@@ -64,7 +66,9 @@ def load_json_data(filename):
         return None
 
 def apply_blocks(sites_to_block):
-    """Creates the initial block in the hosts file."""
+    pass
+    """
+    # Creates the initial block in the hosts file.
     print(f"Applying initial block for sites: {sites_to_block}")
     try:
         with open(HOSTS_FILE_PATH, 'a') as f:
@@ -84,10 +88,12 @@ def apply_blocks(sites_to_block):
         
     except Exception as e:
         print(f"❌ ERROR writing to hosts file: {e}")
-
+"""
 # --- NEW FUNCTION ---
 def add_sites_to_block(sites_to_add):
-    """Adds new sites to an existing block in the hosts file."""
+    pass
+"""
+   # Adds new sites to an existing block in the hosts file.
     if not sites_to_add:
         return
     print(f"Adding new sites to blocklist: {sites_to_add}")
@@ -120,9 +126,11 @@ def add_sites_to_block(sites_to_add):
 
     except Exception as e:
         print(f"❌ ERROR updating hosts file: {e}")
-
+"""
 def remove_blocks():
-    """Removes all FocusGuard blocks from the hosts file."""
+    pass
+    """
+    # Removes all FocusGuard blocks from the hosts file
     print("Removing all active blocks...")
     try:
         with open(HOSTS_FILE_PATH, 'r') as f:
@@ -145,9 +153,10 @@ def remove_blocks():
         BLOCK_STATE['sites'] = set()
         terminate_browser()
         update_block_status_file()
-    
     except Exception as e:
         print(f"❌ ERROR modifying hosts file: {e}")
+    """
+    
 
 
 def main():
@@ -204,6 +213,7 @@ def main():
 
         print(f"--- Status: Block Active ({BLOCK_STATE['type']}) on {len(BLOCK_STATE['sites'])} sites ---")
         print(f"Next check in {CHECK_INTERVAL_SECONDS // 60} minutes...")
+        update_block_status_file()
         time.sleep(CHECK_INTERVAL_SECONDS)
 
 

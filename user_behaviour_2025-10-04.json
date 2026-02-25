@@ -1,0 +1,44 @@
+{
+    "datetime_utc": "2025-10-04T08:48:39.542832Z",
+    "total_active_time_minutes": 182,
+    "productivity_score_percent": 0,
+    "time_by_category": {
+        "Productive": 0,
+        "Neutral": 1,
+        "Distracting": 180
+    },
+    "sites_by_duration": [
+        {
+            "site": "www.webtoons.com",
+            "duration_minutes": 84
+        },
+        {
+            "site": "www.mangadex.org",
+            "duration_minutes": 80
+        },
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 16
+        },
+        {
+            "site": "172.16.2.1",
+            "duration_minutes": 1
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "manhuaus.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "www.mangadex.org",
+        "www.instagram.com",
+        "manhuaus.com",
+        "www.webtoons.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

@@ -1,0 +1,65 @@
+{
+    "datetime_utc": "2025-10-12T21:04:51Z",
+    "total_active_time_minutes": 376,
+    "productivity_score_percent": 81,
+    "time_by_category": {
+        "Productive": 305,
+        "Neutral": 1,
+        "Distracting": 70
+    },
+    "sites_by_duration": [
+        {
+            "site": "bato.si",
+            "duration_minutes": 255
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 70
+        },
+        {
+            "site": "lunarletters.com",
+            "duration_minutes": 29
+        },
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 9
+        },
+        {
+            "site": "webtoonscan.com",
+            "duration_minutes": 5
+        },
+        {
+            "site": "kingofshojo.com",
+            "duration_minutes": 5
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "mangaupdates.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "magustoon.org",
+            "duration_minutes": 0
+        },
+        {
+            "site": "one.google.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "tema.otonity.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "ero18x.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "instagram.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

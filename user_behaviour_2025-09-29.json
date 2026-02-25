@@ -1,32 +1,59 @@
 {
-    "datetime_utc": "2025-09-29 14:11:19.831448",
-    "total_active_time_minutes": 311,
-    "productivity_score_percent": 58,
+    "datetime_utc": "2025-09-29T23:39:12.139019",
+    "total_active_time_minutes": 401,
+    "productivity_score_percent": 70,
     "time_by_category": {
-        "Productive": 179,
+        "Productive": 280,
         "Neutral": 40,
-        "Distracting": 92
+        "Distracting": 81
     },
     "sites_by_duration": [
         {
             "site": "gemini.google.com",
-            "duration_minutes": 156
+            "duration_minutes": 158
         },
         {
-            "site": "www.instagram.com",
-            "duration_minutes": 92
+            "site": "instagram.com",
+            "duration_minutes": 70
+        },
+        {
+            "site": "127.0.0.1",
+            "duration_minutes": 69
+        },
+        {
+            "site": "github.com",
+            "duration_minutes": 43
         },
         {
             "site": "search.brave.com",
             "duration_minutes": 40
         },
         {
-            "site": "127.0.0.1",
-            "duration_minutes": 23
+            "site": "172.16.2.1",
+            "duration_minutes": 9
+        },
+        {
+            "site": "music.youtube.com",
+            "duration_minutes": 7
+        },
+        {
+            "site": "youtube.com",
+            "duration_minutes": 4
+        },
+        {
+            "site": "aniwatchtv.to",
+            "duration_minutes": 1
+        },
+        {
+            "site": "studio.youtube.com",
+            "duration_minutes": 0
         }
     ],
     "sites_to_block": [
-        "www.instagram.com"
+        "aniwatchtv.to",
+        "instagram.com",
+        "music.youtube.com",
+        "youtube.com"
     ],
     "block_type": "permanent",
     "temporary_block_duration_seconds": 0

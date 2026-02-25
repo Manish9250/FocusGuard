@@ -1,0 +1,89 @@
+{
+    "datetime_utc": "2025-10-11T21:03:13Z",
+    "total_active_time_minutes": 411,
+    "productivity_score_percent": 9,
+    "time_by_category": {
+        "Productive": 36,
+        "Neutral": 7,
+        "Distracting": 368
+    },
+    "sites_by_duration": [
+        {
+            "site": "lifeafter20.com",
+            "duration_minutes": 126
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 124
+        },
+        {
+            "site": "webtoons.com",
+            "duration_minutes": 120
+        },
+        {
+            "site": "xbato.com",
+            "duration_minutes": 104
+        },
+        {
+            "site": "youtube.com",
+            "duration_minutes": 37
+        },
+        {
+            "site": "web.whatsapp.com",
+            "duration_minutes": 36
+        },
+        {
+            "site": "jadugarprince.com",
+            "duration_minutes": 13
+        },
+        {
+            "site": "ethersoftex.com",
+            "duration_minutes": 7
+        },
+        {
+            "site": "whatismyipaddress.com",
+            "duration_minutes": 4
+        },
+        {
+            "site": "jadugarsikandar.com",
+            "duration_minutes": 3
+        },
+        {
+            "site": "brave.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "172.16.2.1",
+            "duration_minutes": 1
+        },
+        {
+            "site": "novelcool.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "expireddomains.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "healtheek.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "webtoons.com",
+        "novelcool.com",
+        "lifeafter20.com",
+        "xbato.com",
+        "instagram.com",
+        "jadugarprince.com",
+        "jadugarsikandar.com",
+        "youtube.com",
+        "web.whatsapp.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

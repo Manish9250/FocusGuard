@@ -1,0 +1,39 @@
+{
+    "datetime_utc": "2025-10-15T13:39:31Z",
+    "total_active_time_minutes": 108,
+    "productivity_score_percent": 15,
+    "time_by_category": {
+        "Productive": 17,
+        "Neutral": 0,
+        "Distracting": 91
+    },
+    "sites_by_duration": [
+        {
+            "site": "www.webtoons.com",
+            "duration_minutes": 56
+        },
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 34
+        },
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 17
+        },
+        {
+            "site": "web.whatsapp.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "docs.google.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "www.webtoons.com",
+        "www.instagram.com",
+        "web.whatsapp.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

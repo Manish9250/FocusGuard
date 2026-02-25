@@ -1,0 +1,61 @@
+{
+    "datetime_utc": "2025-10-16T20:33:51Z",
+    "total_active_time_minutes": 487,
+    "productivity_score_percent": 61,
+    "time_by_category": {
+        "Productive": 296,
+        "Neutral": 1,
+        "Distracting": 182
+    },
+    "sites_by_duration": [
+        {
+            "site": "youtube.com",
+            "duration_minutes": 206
+        },
+        {
+            "site": "manhwaclan.com",
+            "duration_minutes": 154
+        },
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 86
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 27
+        },
+        {
+            "site": "eportal.incometax.gov.in",
+            "duration_minutes": 2
+        },
+        {
+            "site": "docs.google.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "incometax.gov.in",
+            "duration_minutes": 1
+        },
+        {
+            "site": "kunmanga.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "webtoons.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "instagram.com",
+        "kunmanga.com",
+        "manhwaclan.com",
+        "webtoons.com",
+        "youtube.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

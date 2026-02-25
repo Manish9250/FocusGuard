@@ -1,1 +1,1 @@
-{"blocked": false, "type": "none", "sites": ["www.instagram.com"], "expires_at_iso": null}
+{"blocked": true, "type": "permanent", "sites": ["blinkit.com", "zeptonow.com", "www.instagram.com", "www.youtube.com", "www.google.com"], "expires_at_iso": null}

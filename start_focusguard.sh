@@ -5,7 +5,7 @@
 PROJECT_DIR="/home/manish/shared_space/FocusGuard"
 
 # 2. Your Google API Key
-export GENAI_API_KEY_1="AIzaSyCnPOPM61T8fT37tLsz8Glt7h-w"
+export GENAI_API_KEY_1="AIzaSyCnPOPssH1A0dM61T8fT37tLsz8Glt7h-w"
 # -----------------------------------------
 
 # Navigate to the project directory

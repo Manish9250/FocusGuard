@@ -1,0 +1,57 @@
+{
+    "datetime_utc": "2025-10-20T10:40:36.389220",
+    "total_active_time_minutes": 93,
+    "productivity_score_percent": 5,
+    "time_by_category": {
+        "Productive": 5,
+        "Neutral": 2,
+        "Distracting": 86
+    },
+    "sites_by_duration": [
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 62
+        },
+        {
+            "site": "www.google.com",
+            "duration_minutes": 18
+        },
+        {
+            "site": "www.youtube.com",
+            "duration_minutes": 6
+        },
+        {
+            "site": "mail.google.com",
+            "duration_minutes": 3
+        },
+        {
+            "site": "studio.youtube.com",
+            "duration_minutes": 2
+        },
+        {
+            "site": "blinkit.com",
+            "duration_minutes": 2
+        },
+        {
+            "site": "zeptonow.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "accounts.google.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "www.instagram.com",
+        "www.google.com",
+        "www.youtube.com",
+        "zeptonow.com",
+        "blinkit.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

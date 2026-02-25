@@ -22,8 +22,13 @@ def get_status():
     """Provides the current block status to the frontend."""
     status = load_json_data('block_status.json')
     if status and status.get('blocked'):
-        expires_at = datetime.fromisoformat(status['expires_at_iso'])
-        remaining_seconds = max(0, (expires_at - datetime.now()).total_seconds())
+        
+        try:
+            expires_at = datetime.fromisoformat(status['expires_at_iso'])
+            remaining_seconds = max(0, (expires_at - datetime.now()).total_seconds())
+        except:
+            remaining_seconds = 0
+
         return jsonify({
             'blocked': True,
             'type': status.get('type', 'temporary'),

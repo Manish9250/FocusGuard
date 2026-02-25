@@ -96,4 +96,4 @@ if __name__ == "__main__":
         for url, title, duration, visit_time in new_history:
             # visit_time is now in your local timezone!
             time_str = visit_time.strftime('%H:%M:%S') 
-            print(f"- At {time_str}, visited {url} for {duration} seconds.")
+            print(f"- At {time_str}, visited {title} for {duration} seconds.")

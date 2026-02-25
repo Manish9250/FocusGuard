@@ -1,0 +1,57 @@
+{
+    "datetime_utc": "2025-10-14T13:47:39Z",
+    "total_active_time_minutes": 120,
+    "productivity_score_percent": 0,
+    "time_by_category": {
+        "Productive": 1,
+        "Neutral": 2,
+        "Distracting": 117
+    },
+    "sites_by_duration": [
+        {
+            "site": "manhwaclan.com",
+            "duration_minutes": 66
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 46
+        },
+        {
+            "site": "kunmanga.com",
+            "duration_minutes": 4
+        },
+        {
+            "site": "amazon.in",
+            "duration_minutes": 2
+        },
+        {
+            "site": "bato.si",
+            "duration_minutes": 1
+        },
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "docs.google.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "youtube.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "bato.si",
+        "instagram.com",
+        "kunmanga.com",
+        "manhwaclan.com",
+        "youtube.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

@@ -1,0 +1,38 @@
+{
+    "datetime_utc": "2025-10-03T11:52:43.464429Z",
+    "total_active_time_minutes": 256,
+    "productivity_score_percent": 1,
+    "time_by_category": {
+        "Productive": 3,
+        "Neutral": 6,
+        "Distracting": 247
+    },
+    "sites_by_duration": [
+        {
+            "site": "kunmanga.com",
+            "duration_minutes": 147
+        },
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 100
+        },
+        {
+            "site": "web.whatsapp.com",
+            "duration_minutes": 6
+        },
+        {
+            "site": "www.youtube.com",
+            "duration_minutes": 3
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "kunmanga.com",
+        "www.instagram.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

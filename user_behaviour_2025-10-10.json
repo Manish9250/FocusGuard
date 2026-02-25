@@ -1,0 +1,91 @@
+{
+    "datetime_utc": "2025-10-10T15:17:47Z",
+    "total_active_time_minutes": 594,
+    "productivity_score_percent": 40,
+    "time_by_category": {
+        "Productive": 213,
+        "Neutral": 67,
+        "Distracting": 315
+    },
+    "sites_by_duration": [
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 212
+        },
+        {
+            "site": "bato.si",
+            "duration_minutes": 158
+        },
+        {
+            "site": "webtoons.com",
+            "duration_minutes": 91
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 66
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 36
+        },
+        {
+            "site": "alucare.fr",
+            "duration_minutes": 5
+        },
+        {
+            "site": "music.youtube.com",
+            "duration_minutes": 3
+        },
+        {
+            "site": "youtube.com",
+            "duration_minutes": 3
+        },
+        {
+            "site": "developers.google.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "mangatoto.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "tapas.io",
+            "duration_minutes": 1
+        },
+        {
+            "site": "brave.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "accounts.google.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "mangadex.org",
+            "duration_minutes": 0
+        },
+        {
+            "site": "wattpad.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "romance.io",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "webtoons.com",
+        "wattpad.com",
+        "romance.io",
+        "mangatoto.com",
+        "mangadex.org",
+        "tapas.io",
+        "alucare.fr",
+        "youtube.com",
+        "instagram.com",
+        "music.youtube.com",
+        "bato.si"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

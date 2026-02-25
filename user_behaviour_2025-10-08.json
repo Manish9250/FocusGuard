@@ -1,0 +1,37 @@
+{
+    "datetime_utc": "2025-10-08T13:57:00Z",
+    "total_active_time_minutes": 140,
+    "productivity_score_percent": 34,
+    "time_by_category": {
+        "Productive": 8,
+        "Neutral": 117,
+        "Distracting": 15
+    },
+    "sites_by_duration": [
+        {
+            "site": "amazon.in",
+            "duration_minutes": 117
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 15
+        },
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 7
+        },
+        {
+            "site": "youtube.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "instagram.com"
+    ],
+    "block_type": "temporary",
+    "temporary_block_duration_seconds": 600
+}

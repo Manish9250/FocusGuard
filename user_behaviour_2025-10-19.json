@@ -1,0 +1,106 @@
+{
+    "datetime_utc": "2025-10-19T15:32:24Z",
+    "total_active_time_minutes": 1097,
+    "productivity_score_percent": 55,
+    "time_by_category": {
+        "Productive": 608,
+        "Neutral": 28,
+        "Distracting": 461
+    },
+    "sites_by_duration": [
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 208
+        },
+        {
+            "site": "photos.google.com",
+            "duration_minutes": 178
+        },
+        {
+            "site": "docs.google.com",
+            "duration_minutes": 173
+        },
+        {
+            "site": "music.youtube.com",
+            "duration_minutes": 153
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 110
+        },
+        {
+            "site": "webtoons.com",
+            "duration_minutes": 59
+        },
+        {
+            "site": "flipkart.com",
+            "duration_minutes": 57
+        },
+        {
+            "site": "amazon.in",
+            "duration_minutes": 39
+        },
+        {
+            "site": "mail.google.com",
+            "duration_minutes": 24
+        },
+        {
+            "site": "drive.google.com",
+            "duration_minutes": 21
+        },
+        {
+            "site": "google.com",
+            "duration_minutes": 20
+        },
+        {
+            "site": "vijaysales.com",
+            "duration_minutes": 19
+        },
+        {
+            "site": "cellbuddy.in",
+            "duration_minutes": 17
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 8
+        },
+        {
+            "site": "ovantica.com",
+            "duration_minutes": 4
+        },
+        {
+            "site": "studio.youtube.com",
+            "duration_minutes": 4
+        },
+        {
+            "site": "youtube.com",
+            "duration_minutes": 2
+        },
+        {
+            "site": "91mobiles.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "accounts.google.com",
+            "duration_minutes": 1
+        },
+        {
+            "site": "myaccount.google.com",
+            "duration_minutes": 1
+        }
+    ],
+    "sites_to_block": [
+        "youtube.com",
+        "amazon.in",
+        "flipkart.com",
+        "91mobiles.com",
+        "instagram.com",
+        "music.youtube.com",
+        "cellbuddy.in",
+        "ovantica.com",
+        "vijaysales.com",
+        "webtoons.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

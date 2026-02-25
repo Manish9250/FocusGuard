@@ -1,0 +1,62 @@
+{
+    "datetime_utc": "2025-10-13T22:02:12Z",
+    "total_active_time_minutes": 378,
+    "productivity_score_percent": 64,
+    "time_by_category": {
+        "Productive": 241,
+        "Neutral": 0,
+        "Distracting": 137
+    },
+    "sites_by_duration": [
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 149
+        },
+        {
+            "site": "music.youtube.com",
+            "duration_minutes": 101
+        },
+        {
+            "site": "docs.google.com",
+            "duration_minutes": 49
+        },
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 36
+        },
+        {
+            "site": "www.mermaidchart.com",
+            "duration_minutes": 20
+        },
+        {
+            "site": "chatgpt.com",
+            "duration_minutes": 16
+        },
+        {
+            "site": "file:///home/manish/external/bdm_project/proposal_23f3003884.pdf",
+            "duration_minutes": 5
+        },
+        {
+            "site": "mermaid.live",
+            "duration_minutes": 2
+        },
+        {
+            "site": "accounts.google.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "auth.openai.com",
+            "duration_minutes": 0
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "www.instagram.com",
+        "music.youtube.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

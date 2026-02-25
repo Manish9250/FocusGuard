@@ -121,6 +121,10 @@ def analyze_productivity(history_data, chat_history, previous_analysis):
     Mistakes that you make:
     1. you add the previous analysis time duration along with the updated history, which is wrong, as i provide you full history of the day everytime.
     2. store all the duration in mintues.
+    3. Ignore the localhost 127.0.0.1, as it is always open on  the tab.
+    4. For youtube, if the title seems like of a distracted video, then only count that as distraction, otherwise make it productive.
+    5. I use studio.youtube.com, for productive work, so ignore that too.
+    6. Also sometime you just block the sites, even when the distraction time is less than 10 mintues, which is wrong.
    """
 
     try:

@@ -1,0 +1,64 @@
+{
+    "datetime_utc": "2025-10-06T22:14:26Z",
+    "total_active_time_minutes": 221,
+    "productivity_score_percent": 37,
+    "time_by_category": {
+        "Productive": 83,
+        "Neutral": 9,
+        "Distracting": 130
+    },
+    "sites_by_duration": [
+        {
+            "site": "www.instagram.com",
+            "duration_minutes": 72
+        },
+        {
+            "site": "www.youtube.com",
+            "duration_minutes": 39
+        },
+        {
+            "site": "en-thunderscans.com",
+            "duration_minutes": 31
+        },
+        {
+            "site": "github.com",
+            "duration_minutes": 24
+        },
+        {
+            "site": "huggingface.co",
+            "duration_minutes": 22
+        },
+        {
+            "site": "1flix.to",
+            "duration_minutes": 19
+        },
+        {
+            "site": "aistudio.google.com",
+            "duration_minutes": 8
+        },
+        {
+            "site": "search.brave.com",
+            "duration_minutes": 6
+        },
+        {
+            "site": "www.openai.fm",
+            "duration_minutes": 0
+        },
+        {
+            "site": "microsoft.github.io",
+            "duration_minutes": 0
+        },
+        {
+            "site": "gemini.google.com",
+            "duration_minutes": 0
+        }
+    ],
+    "sites_to_block": [
+        "www.instagram.com",
+        "1flix.to",
+        "en-thunderscans.com",
+        "www.youtube.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}

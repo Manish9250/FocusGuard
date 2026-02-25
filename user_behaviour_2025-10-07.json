@@ -1,0 +1,26 @@
+{
+    "datetime_utc": "2025-10-07T20:48:38Z",
+    "total_active_time_minutes": 86,
+    "productivity_score_percent": 0,
+    "time_by_category": {
+        "Productive": 0,
+        "Neutral": 0,
+        "Distracting": 86
+    },
+    "sites_by_duration": [
+        {
+            "site": "kunmanga.com",
+            "duration_minutes": 37
+        },
+        {
+            "site": "instagram.com",
+            "duration_minutes": 49
+        }
+    ],
+    "sites_to_block": [
+        "kunmanga.com",
+        "instagram.com"
+    ],
+    "block_type": "permanent",
+    "temporary_block_duration_seconds": 0
+}
